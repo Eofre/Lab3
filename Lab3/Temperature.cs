@@ -68,47 +68,47 @@ namespace Lab3
 
         public Temperature To(MeasureType newType)
         {
-            // по умолчанию новое значение совпадает со старым
+            
             var newValue = this.value;
-            // если текущий тип -- это метр
+           
             if (this.type == MeasureType.C)
             {
-                // а теперь рассматриваем все другие ситуации
+                
                 switch (newType)
                 {
-                    // если конвертим в метр, то значение не меняем
+                    
                     case MeasureType.C:
                         newValue = this.value;
                         break;
-                    // если в км.
+                    
                     case MeasureType.F:
                         newValue = (this.value * 1.8) + 32;
                         break;
-                    // если в  а.е.
+                    
                     case MeasureType.R:
                         newValue = (this.value + 273.15) * (9 / 5);
                         break;
-                    // если в парсек
+                   
                     case MeasureType.K:
                         newValue = this.value + 273.15;
                         break;
                 }
             }
-            else if (newType == MeasureType.C) // если новый тип: метр
+            else if (newType == MeasureType.C) 
             {
-                switch (this.type) // а тут уже старый тип проверяем
+                switch (this.type) 
                 {
                     case MeasureType.C:
                         newValue = this.value;
                         break;
                     case MeasureType.K:
-                        newValue = this.value - 273.15; // кстати это то же код что и выше, только / заменили на *
+                        newValue = this.value - 273.15; 
                         break;
                     case MeasureType.F:
-                        newValue = (this.value - 32) / 1.8; // и тут / на *
+                        newValue = (this.value - 32) / 1.8; 
                         break;
                     case MeasureType.R:
-                        newValue = (this.value - 491.67) * (0.55); // и даже тут, просто / на *
+                        newValue = (this.value - 491.67) * (0.55); 
                         break;
                 }
             }
@@ -121,20 +121,23 @@ namespace Lab3
 
         public static Temperature operator +(Temperature instance1, Temperature instance2)
         {
-            // то есть у текущей длине добавляем число 
-            // полученное преобразованием значения второй длины в тип первой длины
-            // так как у нас определен operator+(Length instance, double number)
-            // то это сработает как ожидается
             return instance1 + instance2.To(instance1.type).value;
         }
 
-        // вычитание двух длин
+      
         public static Temperature operator -(Temperature instance1, Temperature instance2)
         {
-            // тут все тоже, только с минусом
             return instance1 - instance2.To(instance1.type).value;
         }
-
+        public static Temperature operator *(Temperature instance1, Temperature instance2)
+        {
+            return instance1 * instance2.To(instance1.type).value;
+        }
+        public static Temperature operator /(Temperature instance1, Temperature instance2)
+        {
+           
+            return instance1 / instance2.To(instance1.type).value;
+        }
         public string Verbose ()
         {
             string typeVerbose = "";

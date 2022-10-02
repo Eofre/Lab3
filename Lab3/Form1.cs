@@ -74,6 +74,12 @@ namespace Lab3
                     case "-":
                         sumTemparaure = firstLength - secondLength;
                         break;
+                    case "*":
+                        sumTemparaure = firstLength * secondLength;
+                        break;
+                    case "/":
+                        sumTemparaure = firstLength / secondLength;
+                        break;
                     default:
                         sumTemparaure = new Temperature(0, MeasureType.C);
                         break;
