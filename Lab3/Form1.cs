@@ -61,8 +61,8 @@ namespace Lab3
                 MeasureType secondType = GetMeasureType(cmbSecondType);
                 MeasureType resultType = GetMeasureType(cmbResultType);
 
-                var firstLength = new Temperature(firstValue, MeasureType.C);
-                var secondLength = new Temperature(secondValue, MeasureType.C);
+                var firstLength = new Temperature(firstValue, firstType);
+                var secondLength = new Temperature(secondValue, secondType);
 
                 Temperature sumTemparaure;
 
