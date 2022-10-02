@@ -33,57 +33,85 @@ namespace Lab3
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtSecond = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmbFirstType = new System.Windows.Forms.ComboBox();
+            this.cmbSecondType = new System.Windows.Forms.ComboBox();
+            this.cmbResultType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cmbOperation
             // 
             this.cmbOperation.FormattingEnabled = true;
+            this.cmbOperation.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
             this.cmbOperation.Location = new System.Drawing.Point(12, 12);
             this.cmbOperation.Name = "cmbOperation";
             this.cmbOperation.Size = new System.Drawing.Size(48, 24);
             this.cmbOperation.TabIndex = 0;
+            this.cmbOperation.Text = "+";
+            this.cmbOperation.SelectedIndexChanged += new System.EventHandler(this.cmbOperation_SelectedIndexChanged);
             // 
             // txtFirst
             // 
-            this.txtFirst.Location = new System.Drawing.Point(112, 14);
+            this.txtFirst.Location = new System.Drawing.Point(118, 12);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(100, 22);
             this.txtFirst.TabIndex = 1;
-            this.txtFirst.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtFirst.TextChanged += new System.EventHandler(this.txtFirst_TextChanged);
             // 
             // txtSecond
             // 
-            this.txtSecond.Location = new System.Drawing.Point(112, 56);
+            this.txtSecond.Location = new System.Drawing.Point(118, 40);
             this.txtSecond.Name = "txtSecond";
             this.txtSecond.Size = new System.Drawing.Size(100, 22);
             this.txtSecond.TabIndex = 2;
-            this.txtSecond.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtSecond.TextChanged += new System.EventHandler(this.txtSecond_TextChanged);
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(12, 95);
+            this.txtResult.Location = new System.Drawing.Point(12, 68);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(200, 22);
+            this.txtResult.Size = new System.Drawing.Size(206, 22);
             this.txtResult.TabIndex = 3;
-            this.txtResult.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtResult.TextChanged += new System.EventHandler(this.txtResult_TextChanged);
             // 
-            // button1
+            // cmbFirstType
             // 
-            this.button1.Location = new System.Drawing.Point(31, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cmbFirstType.FormattingEnabled = true;
+            this.cmbFirstType.Location = new System.Drawing.Point(224, 10);
+            this.cmbFirstType.Name = "cmbFirstType";
+            this.cmbFirstType.Size = new System.Drawing.Size(50, 24);
+            this.cmbFirstType.TabIndex = 4;
+            this.cmbFirstType.SelectedIndexChanged += new System.EventHandler(this.cmbFirstType_SelectedIndexChanged);
+            // 
+            // cmbSecondType
+            // 
+            this.cmbSecondType.FormattingEnabled = true;
+            this.cmbSecondType.Location = new System.Drawing.Point(225, 40);
+            this.cmbSecondType.Name = "cmbSecondType";
+            this.cmbSecondType.Size = new System.Drawing.Size(49, 24);
+            this.cmbSecondType.TabIndex = 5;
+            this.cmbSecondType.SelectedIndexChanged += new System.EventHandler(this.cmbSecondType_SelectedIndexChanged);
+            // 
+            // cmbResultType
+            // 
+            this.cmbResultType.FormattingEnabled = true;
+            this.cmbResultType.Location = new System.Drawing.Point(224, 66);
+            this.cmbResultType.Name = "cmbResultType";
+            this.cmbResultType.Size = new System.Drawing.Size(50, 24);
+            this.cmbResultType.TabIndex = 6;
+            this.cmbResultType.SelectedIndexChanged += new System.EventHandler(this.cmbResultType_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 147);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(286, 100);
+            this.Controls.Add(this.cmbResultType);
+            this.Controls.Add(this.cmbSecondType);
+            this.Controls.Add(this.cmbFirstType);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtSecond);
             this.Controls.Add(this.txtFirst);
@@ -101,7 +129,9 @@ namespace Lab3
         private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.TextBox txtSecond;
         private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbFirstType;
+        private System.Windows.Forms.ComboBox cmbSecondType;
+        private System.Windows.Forms.ComboBox cmbResultType;
     }
 }
 
