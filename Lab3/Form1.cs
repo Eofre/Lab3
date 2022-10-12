@@ -18,10 +18,10 @@ namespace Lab3
 
             var measureItems = new string[]
         {
-            "C",
-            "K",
-            "F",
-            "R",
+            "C°",
+            "K°",
+            "F°",
+            "R°",
         };
             cmbFirstType.DataSource = new List<string>(measureItems);
             cmbSecondType.DataSource = new List<string>(measureItems);
@@ -32,16 +32,16 @@ namespace Lab3
             MeasureType measureType;
             switch (comboBox.Text)
             {
-                case "C":
+                case "C°":
                     measureType = MeasureType.C;
                     break;
-                case "F":
+                case "F°":
                     measureType = MeasureType.F;
                     break;
-                case "K":
+                case "K°":
                     measureType = MeasureType.K;
                     break;
-                case "R":
+                case "R°":
                     measureType = MeasureType.R;
                     break;
                 default:
